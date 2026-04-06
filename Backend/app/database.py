@@ -1,14 +1,21 @@
+from dotenv import load_dotenv
 import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 
+load_dotenv()
+
 DATABASE_URL = os.getenv("DATABASE_URL")
+
+print(f"Connecting to database at: {DATABASE_URL}")
 
 # create_engine → connects to database
 # SessionLocal → manages database transactions
 # Base → base class for models
 
-engine = create_engine(DATABASE_URL, connect_args={"sslmode": "require"}) # connects to the database
+engine = create_engine(DATABASE_URL, 
+                       connect_args={"sslmode": "require"} if "postgresql" in DATABASE_URL else {}
+                       ) # connects to the database
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine) # manages database transactions
 Base = declarative_base() # base class for models, used to define database tables and their relationships
 
