@@ -1,6 +1,6 @@
 "use client";
 
-import { Event } from "@/types/event";
+import { Event } from "@/components/types/event";
 import { useState } from "react";
 
 interface Props {

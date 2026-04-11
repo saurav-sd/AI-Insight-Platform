@@ -26,7 +26,8 @@ origins = [
 # CORS middleware to allow requests from the Next.js frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins, # Your Next.js URL
+    # allow_origins=origins, # Your Next.js URL
+    allow_origins=["*"], # Allow all origins (for development purposes, consider restricting this in production)
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

@@ -29,4 +29,4 @@ class AICache(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     query_hash = Column(String, unique=True, index=True)
-    response = Column(Text)
+    response = Column(JSON)

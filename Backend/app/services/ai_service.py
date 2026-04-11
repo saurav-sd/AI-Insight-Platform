@@ -40,9 +40,6 @@ def call_ai_with_cache(prompt: str, db):
     return response
 
 
-# 📊 Insight API
-import json
-
 def format_insight_text(raw_text: str):
     lines = raw_text.split("\n")
 
