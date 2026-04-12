@@ -17,11 +17,7 @@ export default function DashboardLayout({
 
       {/* MAIN */}
       <div className="flex-1 ml-64 flex flex-col">
-
         {/* HEADER */}
-        {/* <header className="h-16 border-b border-white/10 flex items-center px-6 sticky top-0 bg-[#0B0F19] z-50">
-          <h1 className="text-lg font-semibold">Insight Dashboard</h1>
-        </header> */}
         <Headers />
 
         {/* CONTENT */}

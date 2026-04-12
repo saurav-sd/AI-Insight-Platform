@@ -2,15 +2,12 @@
 
 import { useEffect } from 'react';
 import { fetchEvents } from '@/components/features/dashboard/services/dashboard.api';
-import { useDashboard } from '@/components/features/dashboard/hooks/useDashboard';
-
 import Filters from '@/components/features/dashboard/components/Filters';
 import StatsCards from '@/components/features/dashboard/components/StatsCards';
 import EventChart from '@/components/features/dashboard/components/EventChart';
 import EventTable from '@/components/features/dashboard/components/EventTable';
 import Funnel from '@/components/features/dashboard/components/Funnel';
 import Retention from '@/components/features/dashboard/components/Retention';
-import AIChat from '@/components/features/dashboard/components/AIChat';
 
 import { useState } from 'react';
 
@@ -48,7 +45,7 @@ export default function DashboardPage() {
   return (
     <div className="p-6 space-y-6">
       {/* 🔥 HEADER */}
-      <div className="flex items-center justify-between">
+      {/* <div className="flex items-center justify-between">
         <div>
           <h1 className="text-3xl font-semibold tracking-tight">Dashboard</h1>
           <p className="text-gray-400 text-sm">
@@ -64,7 +61,7 @@ export default function DashboardPage() {
             New Report
           </button>
         </div>
-      </div>
+      </div> */}
 
       {/* 🔍 FILTERS */}
       <div className="glass p-4">
@@ -103,9 +100,6 @@ export default function DashboardPage() {
           <EventTable events={filteredEvents} />
         </div>
       </div>
-
-      {/* 🤖 FLOATING AI CHAT */}
-      {/* <AIChat /> */}
     </div>
   );
 }

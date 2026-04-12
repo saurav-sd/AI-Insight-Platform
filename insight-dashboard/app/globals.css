@@ -16,3 +16,12 @@ body {
 .glow {
   box-shadow: 0 0 40px rgba(99, 102, 241, 0.15);
 }
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-rotate-slow {
+  animation: rotate 6s linear infinite;
+}
