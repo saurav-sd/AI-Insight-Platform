@@ -63,7 +63,7 @@ def run_multi_agents(db: Session = Depends(get_db)):
 def chat_with_agents(req: schemas.ChatRequest, db: Session = Depends(get_db)):
     user_message = req.question
 
-    intent = classify_intent(user_message)
+    intent = classify_intent(user_message, db)
 
     if intent == "casual":
         reply = normal_chat_reply(user_message)

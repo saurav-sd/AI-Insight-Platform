@@ -105,7 +105,7 @@ export default function DashboardPage() {
       </div>
 
       {/* 🤖 FLOATING AI CHAT */}
-      <AIChat />
+      {/* <AIChat /> */}
     </div>
   );
 }

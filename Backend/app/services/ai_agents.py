@@ -1,4 +1,5 @@
 from app.services.ai_service import call_ai_with_cache
+from sqlalchemy.orm import Session
 
 
 # 🧠 Data Analyst
@@ -80,27 +81,36 @@ def summarize_agents_output(agent_outputs, db):
 
 
 # 🎯 Intent Classifier
-def classify_intent(message: str):
-    prompt = f"""
-    Classify the message into:
-    casual OR analytics
+def classify_intent(message: str, db: Session):
+    try:
+        prompt = f"""
+        Classify the message into:
+        casual OR analytics
 
-    Message:
-    {message}
-    """
+        Message:
+        {message}
+        """
 
-    return call_ai_with_cache(prompt, None).lower()
+        return call_ai_with_cache(prompt, db).lower()
+    except Exception as e:
+        print("Error in classify_intent:", e)
+        return "analytics"
+
 
 
 # 💬 Chat
 def normal_chat_reply(message: str):
-    prompt = f"""
-    You are a friendly assistant.
+    try:
+        prompt = f"""
+        You are a friendly assistant.
 
-    Respond casually.
+        Respond casually.
 
-    User:
-    {message}
-    """
+        User:
+        {message}
+        """
 
-    return call_ai_with_cache(prompt, None)
+        return call_ai_with_cache(prompt, None)
+    except Exception as e:
+        print("Error in normal_chat_reply:", e)
+        return "Sorry, I couldn't process that."

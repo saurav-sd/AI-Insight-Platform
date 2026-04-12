@@ -1,5 +1,6 @@
 import Sidebar from "@/components/layout/Sidebar";
 import Headers from "@/components/layout/Header";
+import AIChat from "@/components/features/dashboard/components/AIChat";
 
 export default function DashboardLayout({
   children,
@@ -26,6 +27,7 @@ export default function DashboardLayout({
         {/* CONTENT */}
         <main className="flex-1 overflow-y-auto p-6">
           {children}
+          <AIChat/>
         </main>
       </div>
     </div>

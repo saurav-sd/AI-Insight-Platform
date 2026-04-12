@@ -3,6 +3,7 @@ from app.core.config import settings
 from app.core.config import AI_MODE
 from app.services.cache_service import get_cached_response, save_response
 from app.services.mock_ai import get_mock_insight
+from sqlalchemy.orm import Session
 
 
 model = genai.GenerativeModel(settings.MODEL_NAME)
@@ -24,7 +25,11 @@ def call_ai(prompt: str):
 
 
 # ⚡ Cache Wrapper
-def call_ai_with_cache(prompt: str, db):
+def call_ai_with_cache(prompt: str, db: Session = None):
+    if db is None:
+        print("⚠️ No DB session provided, skipping cache")
+        return call_ai(prompt)
+    
     cached = get_cached_response(db, prompt)
 
     if cached:

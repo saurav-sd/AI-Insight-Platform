@@ -1,6 +1,5 @@
 'use client';
 
-import AIChat from '@/components/features/dashboard/components/AIChat';
 import AIInsights from '@/components/features/dashboard/components/AIInsights';
 import AgentsInsights from '@/components/features/dashboard/components/AgentsInsights';
 
